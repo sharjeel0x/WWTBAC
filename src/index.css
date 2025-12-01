@@ -1,0 +1,8 @@
+@import "tailwindcss";
+
+
+.logo-font {
+  font-family: "Chokokutai", system-ui;
+  font-weight: 400;
+  font-style: normal;
+}
