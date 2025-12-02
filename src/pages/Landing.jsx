@@ -20,7 +20,7 @@ const Landing = () => {
       </motion.div>
 
       <motion.h1
-        className="text-white logo-font font-extrabold text-5xl my-10"
+        className="text-white  font-extrabold text-5xl my-10"
         initial={{ opacity: 0, y: 20, scale: 0.95 }}
         animate={{ opacity: 1, y: 0, scale: 1 }}
         transition={{ delay: 0.9, duration: 0.8, ease: "easeOut" }}
@@ -33,7 +33,7 @@ const Landing = () => {
           navigate("/menu");
         }}
         className="
-          w-30 px-6 py-2 rounded-4xl font-bold text-white
+          w-60 px-6 py-2 rounded-4xl font-bold text-white
           bg-black border border-[#2A2A2A] tracking-widest
           hover:bg-[#0a0a0a] cursor-pointer
         "
