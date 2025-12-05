@@ -82,52 +82,81 @@ const Game = () => {
     }
   };
 
-  return (
-    <div className="flex flex-col justify-around items-center h-screen text-white">
-      <div>
-        <p className="mb-2">
+return (
+  <div className="relative flex flex-col justify-around items-center h-screen text-green-300 font-mono tracking-wider overflow-hidden bg-black">
+
+    {/* ambient layers */}
+    <div className="absolute inset-0 bg-gradient-to-b from-black via-[#0a0f0d] to-black" />
+    <div className="absolute inset-0 opacity-[0.04] bg-[url('/textures/noise.png')]" />
+    <div className="absolute inset-0 bg-[repeating-linear-gradient(0deg,transparent,transparent_2px,rgba(0,255,100,0.1)_3px)] opacity-10 pointer-events-none" />
+
+    <div className="relative z-10 text-center">
+
+      {/* top info panel */}
+      <div className="border border-green-600/40 bg-black/50 p-6 rounded-xl shadow-[0_0_15px_rgba(0,255,140,0.2)] backdrop-blur-md">
+        <p className="mb-2 text-sm opacity-80">
           Difficulty:{" "}
-          <span className="font-extrabold">{difficulty.toUpperCase()}</span>
+          <span className="font-extrabold text-green-400">{difficulty.toUpperCase()}</span>
         </p>
 
-        <p className="mb-6">
+        <p className="mb-6 text-sm opacity-80">
           Languages:{" "}
-          <span className="font-extrabold">{languages.join(", ")}</span>
+          <span className="font-extrabold text-green-400">
+            {languages.join(", ")}
+          </span>
         </p>
 
-        <h1>Score: {score}</h1>
+        <h1 className="mb-2 text-lg font-bold">Score: {score}</h1>
 
-        <p>
+        <p className="text-sm tracking-widest">
           Question: {index + 1} / {qList.length}
         </p>
       </div>
 
-      <div className="flex flex-col items-center">
-        <h1 className="text-2xl mb-10 font-extrabold tracking-widest">
-          Question: {currentQuestion.q}
+      {/* question block */}
+      <div className="flex flex-col items-center mt-16">
+        <h1 className="text-2xl mb-10 font-extrabold tracking-[0.25em] text-green-400 drop-shadow-[0_0_6px_rgba(0,255,120,0.4)]">
+          {currentQuestion.q}
         </h1>
 
-        <div className="flex flex-wrap gap-5 max-w-[500px]">
+        <div className="flex flex-wrap gap-5 max-w-[500px] justify-center">
           {currentQuestion.options.map((option, i) => (
             <Button
               key={i}
               onClick={() => ansChecker(option)}
-              className={bgChanger(option)}
               disabled={isLocked}
+              className={`
+                px-6 py-3 border border-green-500/30 
+                hover:border-green-300 hover:bg-green-300/10 
+                rounded-lg shadow-[0_0_6px_rgba(0,255,120,0.25)]
+                tracking-wider text-sm
+                transition-all duration-150 active:scale-95
+                ${bgChanger(option)}
+              `}
             >
               {option}
             </Button>
           ))}
         </div>
 
-        <Button onClick={nextQuestion} className="mt-10">
-          Next Question
+        <Button
+          onClick={nextQuestion}
+          className="mt-10 px-8 py-3 border border-green-500/30 hover:border-green-300 hover:bg-green-300/10 rounded-lg tracking-widest text-sm shadow-[0_0_6px_rgba(0,255,120,0.25)]"
+        >
+          NEXT →
         </Button>
       </div>
 
-      <Button onClick={() => navigate("/select")}>Back to Selection</Button>
+      <Button
+        onClick={() => navigate("/select")}
+        className="mt-14 px-6 py-2 border border-red-500/30 hover:border-red-300 hover:bg-red-300/10 rounded-lg tracking-widest text-sm shadow-[0_0_6px_rgba(255,0,0,0.25)]"
+      >
+        BACK
+      </Button>
     </div>
-  );
+  </div>
+);
+
 };
 
 export default Game;

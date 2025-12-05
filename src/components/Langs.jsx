@@ -14,14 +14,22 @@ const Langs = ({ onSelect, selectedLang }) => {
   ];
 
   return (
-    <div className="lang-con text-white flex flex-wrap gap-3 max-w-3xl">
-      {languages.map(lang => (
+    <div className="lang-con flex flex-wrap gap-4 justify-center max-w-3xl mx-auto">
+      {languages.map((lang) => (
         <LangButton
           key={lang.name}
           icon={lang.icon}
           selected={selectedLang.includes(lang.name)}
           onClick={() => onSelect(lang.name)}
+          className={`
+            flex items-center gap-2 px-4 py-2 rounded-lg border 
+            ${selectedLang.includes(lang.name) 
+              ? "border-green-400 bg-green-500/10 shadow-[0_0_8px_rgba(0,255,120,0.25)]" 
+              : "border-green-600/30 hover:border-green-300 hover:bg-green-300/10"}
+            text-green-300 font-mono tracking-wider text-sm transition-all duration-150
+          `}
         >
+          
           {lang.name}
         </LangButton>
       ))}
