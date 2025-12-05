@@ -2,10 +2,10 @@ import LangButton from "../components/ui/langButton";
 
 const Langs = ({ onSelect, selectedLang }) => {
   const languages = [
-    { name: "JS", icon: "logos/js.png" },
+    { name: "Javascript", icon: "logos/js.png" },
     { name: "Python", icon: "logos/python.png" },
-    { name: "C++", icon: "logos/c-.png" },
-    { name: "C#", icon: "logos/c-sharp.png" },
+    { name: "CPP", icon: "logos/c-.png" },
+    { name: "CSharp", icon: "logos/c-sharp.png" },
     { name: "ReactJS", icon: "logos/react.png" },
     { name: "TypeScript", icon: "logos/typescript.png" },
     { name: "Java", icon: "logos/java.png" },

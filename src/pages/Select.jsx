@@ -4,30 +4,27 @@ import Langs from "../components/Langs";
 import Button from "../components/ui/Button";
 
 const Select = () => {
-  const [difficulty, setDifficulty] = useState(""); // single selection
-  const [selectedLang, setSelectedLang] = useState([]); // multiple selection
+  const [difficulty, setDifficulty] = useState(""); 
+  const [selectedLang, setSelectedLang] = useState([]); 
   const navigate = useNavigate();
 
   const handleLangSelect = (lang) => {
     setSelectedLang((prev) =>
       prev.includes(lang)
-        ? prev.filter((l) => l !== lang) // unselect
-        : [...prev, lang] // add
+        ? prev.filter((l) => l !== lang) 
+        : [...prev, lang] 
     );
   };
 
   const handlePlay = () => {
-    if (!difficulty) {
-      alert("Select a difficulty first.");
-      return;
-    }
-    if (selectedLang.length === 0) {
-      alert("Select at least one language first.");
-      return;
-    }
+  if (!difficulty) return alert("Select a difficulty first.");
+  if (selectedLang.length === 0) return alert("Select at least one language.");
 
-    navigate(`/game?difficulty=${difficulty}&lang=${selectedLang.join(",")}`);
-  };
+  navigate("/game", {
+    state: { difficulty, languages: selectedLang }
+  });
+};
+
 
   return (
     <div className="flex flex-col justify-center items-center h-screen">
