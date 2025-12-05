@@ -1,4 +1,4 @@
-import LangButton from "../components/ui/langButton";
+import LangButton from "../components/ui/LangButton";
 
 const Langs = ({ onSelect, selectedLang }) => {
   const languages = [

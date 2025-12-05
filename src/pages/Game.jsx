@@ -83,7 +83,7 @@ const Game = () => {
   };
 
 return (
-  <div className="relative flex flex-col justify-around items-center h-screen text-green-300 font-mono tracking-wider overflow-hidden bg-black">
+  <div className="relative flex flex-col justify-center items-center h-screen w-screen text-green-300 font-mono tracking-wider overflow-hidden bg-black">
 
     {/* ambient layers */}
     <div className="absolute inset-0 bg-gradient-to-b from-black via-[#0a0f0d] to-black" />
@@ -93,7 +93,7 @@ return (
     <div className="relative z-10 text-center">
 
       {/* top info panel */}
-      <div className="border border-green-600/40 bg-black/50 p-6 rounded-xl shadow-[0_0_15px_rgba(0,255,140,0.2)] backdrop-blur-md">
+      <div className="border border-green-600/40 bg-black/50 p-6 rounded-xl shadow-[0_0_15px_rgba(0,255,140,0.2)] backdrop-blur-md ">
         <p className="mb-2 text-sm opacity-80">
           Difficulty:{" "}
           <span className="font-extrabold text-green-400">{difficulty.toUpperCase()}</span>
@@ -114,7 +114,7 @@ return (
       </div>
 
       {/* question block */}
-      <div className="flex flex-col items-center mt-16">
+      <div className="flex flex-col items-center mt-16 w-[1100px]">
         <h1 className="text-2xl mb-10 font-extrabold tracking-[0.25em] text-green-400 drop-shadow-[0_0_6px_rgba(0,255,120,0.4)]">
           {currentQuestion.q}
         </h1>
